@@ -172,7 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { sigla: 'PCA', nome: 'Plano de contratações anual (PCA)', padrao: 'P3', areaPadrao: 'PLN', permiteRev: true },
         { sigla: 'PDR', nome: 'Plano diretor (PDR)', padrao: 'P3', areaPadrao: 'PLN' },
         { sigla: 'PLA', nome: 'Plano ou planejamento setorial (PLA)', padrao: 'P3', areaPadrao: 'PLN' },
-        { sigla: 'PPA', nome: 'Plano plurianual (PPA)', padrao: 'P3', areaPadrao: 'PLN' }
+        { sigla: 'PPA', nome: 'Plano plurianual (PPA)', padrao: 'P3', areaPadrao: 'PLN' },
+        { sigla: 'SIG', nome: 'Sistema de informação geográfica (SIG)', padrao: 'P3', areaPadrao: 'PLN' }
       ]
     },
     {
@@ -322,6 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Assunto e Extensões
   const elAssunto = document.getElementById('assunto');
   const elExts = document.getElementById('exts');
+  const elExtCustom = document.getElementById('extCustom');
+  const elAddExtCustom = document.getElementById('addExtCustom');
 
   // Saídas e Contador
   const elPadrao = document.getElementById('padrao');
@@ -381,30 +384,71 @@ document.addEventListener('DOMContentLoaded', () => {
   preencherSelect(elDisc, DISCIPLINAS_PRJ, 'sigla', 'nome');
 
   // Chips de Extensões
+  function criarChipExtensao(extItem) {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip' + (extItem.default ? ' active' : '');
+    chip.textContent = extItem.label;
+    chip.dataset.ext = extItem.ext;
+    chip.setAttribute('aria-pressed', String(extItem.default));
+
+    chip.addEventListener('click', () => {
+      if (selectedExts.has(extItem.ext)) {
+        selectedExts.delete(extItem.ext);
+        chip.classList.remove('active');
+        chip.setAttribute('aria-pressed', 'false');
+      } else {
+        selectedExts.add(extItem.ext);
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+      }
+      atualizarInterfaceENomes();
+    });
+
+    return chip;
+  }
+
   if (elExts) {
     elExts.innerHTML = '';
     EXTENSOES.forEach(extItem => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chip' + (extItem.default ? ' active' : '');
-      chip.textContent = extItem.label;
-      chip.dataset.ext = extItem.ext;
-      chip.setAttribute('aria-pressed', String(extItem.default));
+      elExts.appendChild(criarChipExtensao(extItem));
+    });
+  }
 
-      chip.addEventListener('click', () => {
-        if (selectedExts.has(extItem.ext)) {
-          selectedExts.delete(extItem.ext);
-          chip.classList.remove('active');
-          chip.setAttribute('aria-pressed', 'false');
-        } else {
-          selectedExts.add(extItem.ext);
-          chip.classList.add('active');
-          chip.setAttribute('aria-pressed', 'true');
-        }
-        atualizarInterfaceENomes();
-      });
+  function adicionarExtensaoPersonalizada() {
+    if (!elExtCustom || !elExts) return;
+    const ext = elExtCustom.value.trim().replace(/^\./, '').toLowerCase();
+    if (!/^[a-z0-9]+(?:[._+-][a-z0-9]+)*$/.test(ext)) {
+      elExtCustom.setCustomValidity('Informe uma extensão válida, como qgz ou gpkg.');
+      elExtCustom.reportValidity();
+      return;
+    }
 
+    elExtCustom.setCustomValidity('');
+    let chip = Array.from(elExts.querySelectorAll('.chip'))
+      .find(item => item.dataset.ext === ext);
+    if (!chip) {
+      chip = criarChipExtensao({ ext: ext, label: `.${ext}`, default: true });
       elExts.appendChild(chip);
+    } else {
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+    }
+    selectedExts.add(ext);
+    elExtCustom.value = '';
+    atualizarInterfaceENomes();
+  }
+
+  if (elAddExtCustom) {
+    elAddExtCustom.addEventListener('click', adicionarExtensaoPersonalizada);
+  }
+  if (elExtCustom) {
+    elExtCustom.addEventListener('input', () => elExtCustom.setCustomValidity(''));
+    elExtCustom.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        adicionarExtensaoPersonalizada();
+      }
     });
   }
 
@@ -1039,11 +1083,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (elLimpar) {
     elLimpar.addEventListener('click', () => {
       [
-        elAssunto, elNum, elRemet, elSeq, elCodSeq, elRev, elVers,
+        elAssunto, elNum, elRemet, elSeq, elCodSeq, elRev, elVers, elExtCustom,
         elSigManual, elResp
       ].forEach(el => {
         if (el) el.value = '';
       });
+      if (elExtCustom) elExtCustom.setCustomValidity('');
       if (elRecebido) elRecebido.checked = false;
       if (elModelo) elModelo.checked = false;
       if (elUsaRev) elUsaRev.checked = false;

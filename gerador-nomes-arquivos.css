@@ -491,6 +491,25 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   margin-top: 0.4rem;
 }
 
+.custom-extension-control {
+  margin-top: 0.75rem;
+}
+
+.custom-extension-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.custom-extension-input input {
+  flex: 1;
+  min-width: 0;
+}
+
+.custom-extension-input .btn-secondary {
+  flex: 0 0 auto;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;

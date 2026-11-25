@@ -124,14 +124,17 @@
             <label for="seq">Sequencial na obra <small>(1ª medição = 01)</small></label>
             <input type="text" id="seq" inputmode="numeric" placeholder="1">
           </div>
-          <div id="w_rev" class="field-col">
-            <label for="rev" id="l_rev">Revisão <small>(R00, R01...)</small></label>
-            <input type="text" id="rev" inputmode="numeric" placeholder="0">
-          </div>
           <div id="w_vers" class="field-col">
             <label for="vers">Versão do modelo (P8)</label>
             <input type="text" id="vers" inputmode="numeric" placeholder="1">
           </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div id="w_rev" class="field-col">
+          <label for="rev" id="l_rev">Revisão <small>(R00, R01...)</small></label>
+          <input type="text" id="rev" inputmode="numeric" placeholder="0">
         </div>
       </div>
 
@@ -169,8 +172,15 @@
           <input type="text" id="assunto" placeholder="ex.: solicitacao material escola">
         </div>
         <div class="field-col full">
-          <label>Extensões desejadas <small>(marque as extensões que deseja gerar)</small></label>
+          <label>Extensões desejadas <small>(marque as extensões que deseja gerar ou informe outra extensão)</small></label>
           <div class="chips" id="exts"></div>
+          <div class="custom-extension-control">
+            <label for="extCustom">Outra extensão <small>(ex.: qgz, gpkg)</small></label>
+            <div class="custom-extension-input">
+              <input type="text" id="extCustom" placeholder="ex.: qgz ou gpkg">
+              <button type="button" class="btn-secondary" id="addExtCustom">Adicionar</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
