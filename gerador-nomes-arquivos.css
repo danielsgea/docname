@@ -134,7 +134,7 @@ select:focus-visible {
 }
 
 .header-container {
-  max-width: 1380px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -193,10 +193,10 @@ select:focus-visible {
    LAYOUT PRINCIPAL (GRID RESPONSIVA)
    ========================================================================== */
 .app-main {
-  max-width: 1380px;
+  max-width: 1600px;
   width: 100%;
-  margin: 1.5rem auto;
-  padding: 0 1.25rem;
+  margin: 0.75rem auto;
+  padding: 0 0.75rem;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 1.5rem;
@@ -481,59 +481,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 700;
   text-align: center;
   padding: 0.3rem 0.4rem !important;
-}
-
-/* Extensões (Chips) */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
-}
-
-.custom-extension-control {
-  margin-top: 0.75rem;
-}
-
-.custom-extension-input {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.custom-extension-input input {
-  flex: 1;
-  min-width: 0;
-}
-
-.custom-extension-input .btn-secondary {
-  flex: 0 0 auto;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  background: var(--bg-card-sub);
-  border: 1px solid var(--border);
-  padding: 0.35rem 0.65rem;
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  font-family: monospace;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.chip:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-focus);
-}
-
-.chip.active {
-  background: var(--primary-subtle);
-  border-color: var(--primary);
-  color: var(--primary-text);
-  font-weight: 700;
 }
 
 /* ==========================================================================

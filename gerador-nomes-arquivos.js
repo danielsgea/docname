@@ -201,16 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // Extensões oficiais da norma (Seção 1, Regra 6) + Opção sem extensão
-  const EXTENSOES = [
-    { ext: 'docx', label: '.docx', default: false },
-    { ext: 'dwg',  label: '.dwg',  default: false },
-    { ext: 'jpg',  label: '.jpg',  default: false },
-    { ext: 'pdf',  label: '.pdf',  default: false },
-    { ext: 'rvt',  label: '.rvt',  default: false },
-    { ext: 'xlsx', label: '.xlsx', default: false }
-  ];
-
   // Artigos e preposições (Regra 4)
   const STOPWORDS = new Set([
     'de', 'da', 'do', 'das', 'dos', 'a', 'o', 'as', 'os', 'em', 'no', 'na', 
@@ -320,11 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const elSigGerada = document.getElementById('sigGerada');
   const elSigManual = document.getElementById('sigManual');
 
-  // Assunto e Extensões
+  // Assunto
   const elAssunto = document.getElementById('assunto');
-  const elExts = document.getElementById('exts');
-  const elExtCustom = document.getElementById('extCustom');
-  const elAddExtCustom = document.getElementById('addExtCustom');
 
   // Saídas e Contador
   const elPadrao = document.getElementById('padrao');
@@ -344,7 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sessão e Seleção
   const sessionList = [];
-  const selectedExts = new Set(EXTENSOES.filter(item => item.default).map(item => item.ext));
 
   // =========================================================================
   // 3. INICIALIZAÇÃO DE DROPDOWNS E CHIPS
@@ -382,75 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
   preencherSelect(elOrgao, ORGAOS_CONTROLE, 'sigla', 'nome');
   preencherSelect(elFase, FASES_PRJ, 'sigla', 'nome');
   preencherSelect(elDisc, DISCIPLINAS_PRJ, 'sigla', 'nome');
-
-  // Chips de Extensões
-  function criarChipExtensao(extItem) {
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'chip' + (extItem.default ? ' active' : '');
-    chip.textContent = extItem.label;
-    chip.dataset.ext = extItem.ext;
-    chip.setAttribute('aria-pressed', String(extItem.default));
-
-    chip.addEventListener('click', () => {
-      if (selectedExts.has(extItem.ext)) {
-        selectedExts.delete(extItem.ext);
-        chip.classList.remove('active');
-        chip.setAttribute('aria-pressed', 'false');
-      } else {
-        selectedExts.add(extItem.ext);
-        chip.classList.add('active');
-        chip.setAttribute('aria-pressed', 'true');
-      }
-      atualizarInterfaceENomes();
-    });
-
-    return chip;
-  }
-
-  if (elExts) {
-    elExts.innerHTML = '';
-    EXTENSOES.forEach(extItem => {
-      elExts.appendChild(criarChipExtensao(extItem));
-    });
-  }
-
-  function adicionarExtensaoPersonalizada() {
-    if (!elExtCustom || !elExts) return;
-    const ext = elExtCustom.value.trim().replace(/^\./, '').toLowerCase();
-    if (!/^[a-z0-9]+(?:[._+-][a-z0-9]+)*$/.test(ext)) {
-      elExtCustom.setCustomValidity('Informe uma extensão válida, como qgz ou gpkg.');
-      elExtCustom.reportValidity();
-      return;
-    }
-
-    elExtCustom.setCustomValidity('');
-    let chip = Array.from(elExts.querySelectorAll('.chip'))
-      .find(item => item.dataset.ext === ext);
-    if (!chip) {
-      chip = criarChipExtensao({ ext: ext, label: `.${ext}`, default: true });
-      elExts.appendChild(chip);
-    } else {
-      chip.classList.add('active');
-      chip.setAttribute('aria-pressed', 'true');
-    }
-    selectedExts.add(ext);
-    elExtCustom.value = '';
-    atualizarInterfaceENomes();
-  }
-
-  if (elAddExtCustom) {
-    elAddExtCustom.addEventListener('click', adicionarExtensaoPersonalizada);
-  }
-  if (elExtCustom) {
-    elExtCustom.addEventListener('input', () => elExtCustom.setCustomValidity(''));
-    elExtCustom.addEventListener('keydown', event => {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        adicionarExtensaoPersonalizada();
-      }
-    });
-  }
 
   // Impede que a área padrão volte a substituir uma escolha manual do usuário
   if (elArea) {
@@ -967,46 +884,43 @@ document.addEventListener('DOMContentLoaded', () => {
       elSaidas.innerHTML = '';
       let maiorComprimento = 0;
 
-      const extensoesSaida = selectedExts.size > 0 ? selectedExts : [''];
-      extensoesSaida.forEach(ext => {
-        const nomeCompleto = ext ? `${nomeBase}.${ext}` : nomeBase;
-        if (nomeCompleto.length > maiorComprimento) {
-          maiorComprimento = nomeCompleto.length;
+      const nomeCompleto = nomeBase;
+      if (nomeCompleto.length > maiorComprimento) {
+        maiorComprimento = nomeCompleto.length;
+      }
+
+      const item = document.createElement('div');
+      item.className = 'saida-item';
+
+      const spanNome = document.createElement('span');
+      spanNome.className = 'saida-nome';
+      spanNome.textContent = nomeCompleto;
+
+      const btnCopiar = document.createElement('button');
+      btnCopiar.type = 'button';
+      btnCopiar.className = 'btn-copy-item';
+      btnCopiar.textContent = 'Copiar';
+      btnCopiar.setAttribute('aria-label', `Copiar ${nomeCompleto || 'nome do arquivo'}`);
+      btnCopiar.disabled = temErroObrigatorio || nomeCompleto.length > 80 || !nomeBase;
+      btnCopiar.addEventListener('click', async () => {
+        try {
+          await copiarTexto(nomeCompleto);
+          btnCopiar.textContent = 'Copiado!';
+          btnCopiar.style.borderColor = 'var(--accent)';
+          btnCopiar.style.color = 'var(--accent)';
+          setTimeout(() => {
+            btnCopiar.textContent = 'Copiar';
+            btnCopiar.style.borderColor = '';
+            btnCopiar.style.color = '';
+          }, 1800);
+        } catch (erro) {
+          alert('Não foi possível copiar o nome. Verifique as permissões do navegador.');
         }
-
-        const item = document.createElement('div');
-        item.className = 'saida-item';
-
-        const spanNome = document.createElement('span');
-        spanNome.className = 'saida-nome';
-        spanNome.textContent = nomeCompleto;
-
-        const btnCopiar = document.createElement('button');
-        btnCopiar.type = 'button';
-        btnCopiar.className = 'btn-copy-item';
-        btnCopiar.textContent = 'Copiar';
-        btnCopiar.setAttribute('aria-label', `Copiar ${nomeCompleto || 'nome do arquivo'}`);
-        btnCopiar.disabled = temErroObrigatorio || nomeCompleto.length > 80 || !nomeBase;
-        btnCopiar.addEventListener('click', async () => {
-          try {
-            await copiarTexto(nomeCompleto);
-            btnCopiar.textContent = 'Copiado!';
-            btnCopiar.style.borderColor = 'var(--accent)';
-            btnCopiar.style.color = 'var(--accent)';
-            setTimeout(() => {
-              btnCopiar.textContent = 'Copiar';
-              btnCopiar.style.borderColor = '';
-              btnCopiar.style.color = '';
-            }, 1800);
-          } catch (erro) {
-            alert('Não foi possível copiar o nome. Verifique as permissões do navegador.');
-          }
-        });
-
-        item.appendChild(spanNome);
-        item.appendChild(btnCopiar);
-        elSaidas.appendChild(item);
       });
+
+      item.appendChild(spanNome);
+      item.appendChild(btnCopiar);
+      elSaidas.appendChild(item);
 
       // Atualização da Barra de Caracteres (Regra 5: Máx. 80 caracteres)
       if (elCharCount) elCharCount.textContent = maiorComprimento;
@@ -1083,12 +997,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (elLimpar) {
     elLimpar.addEventListener('click', () => {
       [
-        elAssunto, elNum, elRemet, elSeq, elCodSeq, elRev, elVers, elExtCustom,
+        elAssunto, elNum, elRemet, elSeq, elCodSeq, elRev, elVers,
         elSigManual, elResp
       ].forEach(el => {
         if (el) el.value = '';
       });
-      if (elExtCustom) elExtCustom.setCustomValidity('');
       if (elRecebido) elRecebido.checked = false;
       if (elModelo) elModelo.checked = false;
       if (elUsaRev) elUsaRev.checked = false;
@@ -1101,13 +1014,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (elData) elData.value = dataHojeIso;
       if (elCodAno) elCodAno.value = yyyy;
       if (elArea) elArea.dataset.manual = 'false';
-      selectedExts.clear();
-      if (elExts) {
-        elExts.querySelectorAll('.chip').forEach(chip => {
-          chip.classList.remove('active');
-          chip.setAttribute('aria-pressed', 'false');
-        });
-      }
       atualizarInterfaceENomes();
     });
   }
