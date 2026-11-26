@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 540" width="500" height="540">
+  <defs>
+    
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0082B3" />
+      <stop offset="100%" stop-color="#00A8E0" />
+    </linearGradient>
+
+    <linearGradient id="goldBorderGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FCE83A" />
+      <stop offset="50%" stop-color="#F2D21B" />
+      <stop offset="100%" stop-color="#D4B106" />
+    </linearGradient>
+
+    <linearGradient id="obeliskGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FCE83A" />
+      <stop offset="65%" stop-color="#F2D21B" />
+      <stop offset="100%" stop-color="#D9B60B" />
+    </linearGradient>
+
+    <linearGradient id="brickGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9B634E" />
+      <stop offset="100%" stop-color="#7A4937" />
+    </linearGradient>
+
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#74AAB8" />
+      <stop offset="100%" stop-color="#528391" />
+    </linearGradient>
+
+    
+    <filter id="shieldShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.22" />
+    </filter>
+
+    
+    <clipPath id="escudo-clip">
+      <ellipse cx="250" cy="245" rx="121" ry="154" />
+    </clipPath>
+
+    
+    <clipPath id="torre-clip">
+      <path d="M 152,155 L 166,70 L 194,67 L 194,75 L 204,75 L 204,65 L 232,62 L 232,70 L 241,70 L 241,58 L 259,58 L 259,70 L 268,70 L 268,62 L 296,65 L 296,75 L 306,75 L 306,67 L 334,70 L 348,155 Z" />
+    </clipPath>
+  </defs>
+
+  
+  <g id="coroa-mural">
+    <g clip-path="url(#torre-clip)">
+      <rect x="148" y="55" width="204" height="105" fill="url(#brickGrad)" />
+      
+      <g stroke="#4A2B1F" stroke-width="1.4" opacity="0.85">
+        <line x1="148" y1="73" x2="352" y2="73" />
+        <line x1="148" y1="88" x2="352" y2="88" />
+        <line x1="148" y1="103" x2="352" y2="103" />
+        <line x1="148" y1="118" x2="352" y2="118" />
+        <line x1="148" y1="133" x2="352" y2="133" />
+
+        
+        <line x1="180" y1="58" x2="180" y2="73" />
+        <line x1="216" y1="58" x2="216" y2="73" />
+        <line x1="250" y1="58" x2="250" y2="73" />
+        <line x1="284" y1="58" x2="284" y2="73" />
+        <line x1="320" y1="58" x2="320" y2="73" />
+
+        <line x1="164" y1="73" x2="164" y2="88" />
+        <line x1="198" y1="73" x2="198" y2="88" />
+        <line x1="234" y1="73" x2="234" y2="88" />
+        <line x1="266" y1="73" x2="266" y2="88" />
+        <line x1="302" y1="73" x2="302" y2="88" />
+        <line x1="336" y1="73" x2="336" y2="88" />
+
+        <line x1="180" y1="88" x2="180" y2="103" />
+        <line x1="216" y1="88" x2="216" y2="103" />
+        <line x1="250" y1="88" x2="250" y2="103" />
+        <line x1="284" y1="88" x2="284" y2="103" />
+        <line x1="320" y1="88" x2="320" y2="103" />
+
+        <line x1="164" y1="103" x2="164" y2="118" />
+        <line x1="198" y1="103" x2="198" y2="118" />
+        <line x1="234" y1="103" x2="234" y2="118" />
+        <line x1="266" y1="103" x2="266" y2="118" />
+        <line x1="302" y1="103" x2="302" y2="118" />
+        <line x1="336" y1="103" x2="336" y2="118" />
+      </g>
+    </g>
+    
+    <path d="M 152,155 L 166,70 L 194,67 L 194,75 L 204,75 L 204,65 L 232,62 L 232,70 L 241,70 L 241,58 L 259,58 L 259,70 L 268,70 L 268,62 L 296,65 L 296,75 L 306,75 L 306,67 L 334,70 L 348,155 Z" fill="none" stroke="#4A2B1F" stroke-width="1.6" stroke-linejoin="round" />
+    
+    <path d="M 242.5,91 L 242.5,77 A 7.5,7.5 0 0 1 257.5,77 L 257.5,91 Z" fill="#FFFFFF" stroke="#4A2B1F" stroke-width="1.5" />
+  </g>
+
+  
+  <g id="escudo-central">
+    
+    <ellipse cx="250" cy="245" rx="133" ry="166" fill="url(#goldBorderGrad)" stroke="#2C2C2C" stroke-width="2" filter="url(#shieldShadow)" />
+
+    
+    <g clip-path="url(#escudo-clip)">
+      
+      <rect x="120" y="80" width="260" height="330" fill="url(#skyGrad)" />
+
+      
+      <path d="M 140,164 C 208,218 294,244 380,242 L 380,410 L 120,410 L 136,164 Z" fill="#FFFFFF" />
+
+      
+      <polygon points="242,188 258,188 286,342 214,342" fill="url(#obeliskGrad)" stroke="#2C2C2C" stroke-width="1.1" />
+
+      
+      <g fill="none" stroke="#4A5568" stroke-width="0.95" opacity="0.88">
+        
+        <path d="M 140,164 C 208,218 294,244 380,242" stroke-width="1.3" stroke="#2D3748" />
+        <path d="M 140,164 C 194,235 280,275 380,278" />
+        <path d="M 140,164 C 179,255 265,305 380,315" />
+        <path d="M 140,164 C 164,275 245,335 375,355" />
+        <path d="M 140,164 C 149,295 215,365 340,395" />
+        <path d="M 140,164 C 137,310 180,380 270,405" />
+        <path d="M 140,164 C 129,320 150,385 200,405" />
+
+        
+        <path d="M 176,190 C 163,240 153,310 146,395" />
+        <path d="M 216,213 C 203,265 190,330 183,405" />
+        <path d="M 260,229 C 246,280 233,345 226,408" />
+        <path d="M 306,238 C 292,290 280,350 273,405" />
+        <path d="M 352,241 C 338,292 326,345 320,390" />
+      </g>
+
+      
+      <path d="M 246.5,124 L 253.5,124 L 253.5,141 L 274,141 L 274,148 L 253.5,148 L 253.5,188 L 246.5,188 L 246.5,148 L 226,148 L 226,141 L 246.5,141 Z" fill="#FFFFFF" stroke="#006A94" stroke-width="0.9" stroke-linejoin="round" />
+    </g>
+
+    
+    <ellipse cx="250" cy="245" rx="121" ry="154" fill="none" stroke="#2C2C2C" stroke-width="2" />
+  </g>
+
+  
+  <g id="ondas-agua" fill="none" stroke="url(#waterGrad)" stroke-width="4.5" stroke-linecap="round">
+    <path d="M 90,434 Q 143,426 196,434 T 303,434 T 410,434" />
+    <path d="M 90,443 Q 143,435 196,443 T 303,443 T 410,443" />
+    <path d="M 90,452 Q 143,444 196,452 T 303,452 T 410,452" />
+    <path d="M 90,461 Q 143,453 196,461 T 303,461 T 410,461" />
+  </g>
+</svg>
