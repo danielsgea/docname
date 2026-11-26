@@ -70,31 +70,31 @@ document.addEventListener('DOMContentLoaded', () => {
       grupo: 'Tipos de Uso Geral (Qualquer Área)',
       tipos: [
         { sigla: 'ATA', nome: 'Ata de reunião (ATA)', padrao: 'P3', areaPadrao: 'ADM', dataCompleta: true },
-        { sigla: 'ATD', nome: 'Atestado (ATD)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'DCL', nome: 'Declaração (DCL)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'MEM', nome: 'Memorando (MEM)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'OFC', nome: 'Ofício (OFC)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'OSV', nome: 'Ordem de serviço interna (OSV)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'PAR', nome: 'Parecer técnico (PAR)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'RRM', nome: 'Recusa de recebimento de material (RRM)', padrao: 'P1', areaPadrao: 'ADM' },
-        { sigla: 'REL', nome: 'Relatório (REL)', padrao: 'P3', areaPadrao: 'ADM', permiteRev: true }
+        { sigla: 'ATD', nome: 'Atestado (ATD)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'DCL', nome: 'Declaração (DCL)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'MEM', nome: 'Memorando (MEM)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'OFC', nome: 'Ofício (OFC)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'OSV', nome: 'Ordem de serviço interna (OSV)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'PAR', nome: 'Parecer técnico (PAR)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'RRM', nome: 'Recusa de recebimento de material (RRM)', padrao: 'P1', areaPadrao: 'ADM', dataCompleta: true },
+        { sigla: 'REL', nome: 'Relatório (REL)', padrao: 'P3', areaPadrao: 'ADM', permiteRev: true, dataCompleta: true }
       ]
     },
     {
       grupo: 'Documentos de Obras (OBR — Padrão P6)',
       tipos: [
-        { sigla: 'ART_OBR', nome: 'ART ou RRT da obra (ART)', padrao: 'P6', tipoObra: 'ART', seqTipo: 'num' },
-        { sigla: 'BMD_OBR', nome: 'Boletim de medição de obra (BMD)', padrao: 'P6', tipoObra: 'BMD', seqTipo: 'num' },
-        { sigla: 'CRN_OBR', nome: 'Cronograma físico-financeiro (CRN)', padrao: 'P6', tipoObra: 'CRN', seqTipo: 'omitido', permiteRev: true },
-        { sigla: 'DIO_OBR', nome: 'Diário de obra (DIO)', padrao: 'P6', tipoObra: 'DIO', seqTipo: 'data' },
-        { sigla: 'VIS_OBR', nome: 'Laudo ou vistoria de obra (VIS)', padrao: 'P6', tipoObra: 'VIS', seqTipo: 'data' },
-        { sigla: 'MOB_OBR', nome: 'Monitoramento de obras (MOB)', padrao: 'P6', tipoObra: 'MOB', seqTipo: 'data' },
-        { sigla: 'NOT_OBR', nome: 'Notificação à contratada (NOT)', padrao: 'P6', tipoObra: 'NOT', seqTipo: 'num' },
-        { sigla: 'ORD_OBR', nome: 'Ordem de serviço de obra (ORD)', padrao: 'P6', tipoObra: 'ORD', seqTipo: 'num' },
-        { sigla: 'RFT_OBR', nome: 'Relatório fotográfico (RFT)', padrao: 'P6', tipoObra: 'RFT', seqTipo: 'data' },
-        { sigla: 'ADT_OBR', nome: 'Termo aditivo de obra (ADT)', padrao: 'P6', tipoObra: 'ADT', seqTipo: 'num' },
-        { sigla: 'TRD_OBR', nome: 'Termo de recebimento definitivo (TRD)', padrao: 'P6', tipoObra: 'TRD', seqTipo: 'omitido' },
-        { sigla: 'TRP_OBR', nome: 'Termo de recebimento provisório (TRP)', padrao: 'P6', tipoObra: 'TRP', seqTipo: 'omitido' }
+        { sigla: 'ART_OBR', nome: 'ART ou RRT da obra (ART)', padrao: 'P6', tipoObra: 'ART', seqTipo: 'num', dataCompleta: true },
+        { sigla: 'BMD_OBR', nome: 'Boletim de medição de obra (BMD)', padrao: 'P6', tipoObra: 'BMD', seqTipo: 'num', dataCompleta: true },
+        { sigla: 'CRN_OBR', nome: 'Cronograma físico-financeiro (CRN)', padrao: 'P6', tipoObra: 'CRN', seqTipo: 'omitido', permiteRev: true, dataCompleta: true },
+        { sigla: 'DIO_OBR', nome: 'Diário de obra (DIO)', padrao: 'P6', tipoObra: 'DIO', seqTipo: 'data', dataCompleta: true },
+        { sigla: 'VIS_OBR', nome: 'Laudo ou vistoria de obra (VIS)', padrao: 'P6', tipoObra: 'VIS', seqTipo: 'data', dataCompleta: true },
+        { sigla: 'MOB_OBR', nome: 'Monitoramento de obras (MOB)', padrao: 'P6', tipoObra: 'MOB', seqTipo: 'data', dataCompleta: true },
+        { sigla: 'NOT_OBR', nome: 'Notificação à contratada (NOT)', padrao: 'P6', tipoObra: 'NOT', seqTipo: 'num', dataCompleta: true },
+        { sigla: 'ORD_OBR', nome: 'Ordem de serviço de obra (ORD)', padrao: 'P6', tipoObra: 'ORD', seqTipo: 'num', dataCompleta: true },
+        { sigla: 'RFT_OBR', nome: 'Relatório fotográfico (RFT)', padrao: 'P6', tipoObra: 'RFT', seqTipo: 'data', dataCompleta: true },
+        { sigla: 'ADT_OBR', nome: 'Termo aditivo de obra (ADT)', padrao: 'P6', tipoObra: 'ADT', seqTipo: 'num', dataCompleta: true },
+        { sigla: 'TRD_OBR', nome: 'Termo de recebimento definitivo (TRD)', padrao: 'P6', tipoObra: 'TRD', seqTipo: 'omitido', dataCompleta: true },
+        { sigla: 'TRP_OBR', nome: 'Termo de recebimento provisório (TRP)', padrao: 'P6', tipoObra: 'TRP', seqTipo: 'omitido', dataCompleta: true }
       ]
     },
     {
@@ -113,55 +113,55 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       grupo: 'Atos Normativos (NRM — Padrão P4)',
       tipos: [
-        { sigla: 'DEC', nome: 'Decreto (DEC)', padrao: 'P4' },
-        { sigla: 'LEI', nome: 'Lei (LEI)', padrao: 'P4' },
-        { sigla: 'PRT', nome: 'Portaria (PRT)', padrao: 'P4' }
+        { sigla: 'DEC', nome: 'Decreto (DEC)', padrao: 'P4', dataCompleta: true },
+        { sigla: 'LEI', nome: 'Lei (LEI)', padrao: 'P4', dataCompleta: true },
+        { sigla: 'PRT', nome: 'Portaria (PRT)', padrao: 'P4', dataCompleta: true }
       ]
     },
     {
       grupo: 'Convênios e Repasses (CNV)',
       tipos: [
-        { sigla: 'PTR', nome: 'Plano de trabalho (PTR)', padrao: 'P3', areaPadrao: 'CNV' },
-        { sigla: 'PCT', nome: 'Prestação de contas (PCT)', padrao: 'P3', areaPadrao: 'CNV' },
-        { sigla: 'PRG', nome: 'Prorrogação de convênio (PRG)', padrao: 'P1', areaPadrao: 'CNV' },
-        { sigla: 'TCV', nome: 'Termo de convênio ou repasse (TCV)', padrao: 'P1', areaPadrao: 'CNV' }
+        { sigla: 'PTR', nome: 'Plano de trabalho (PTR)', padrao: 'P3', areaPadrao: 'CNV', dataCompleta: true },
+        { sigla: 'PCT', nome: 'Prestação de contas (PCT)', padrao: 'P3', areaPadrao: 'CNV', dataCompleta: true },
+        { sigla: 'PRG', nome: 'Prorrogação de convênio (PRG)', padrao: 'P1', areaPadrao: 'CNV', dataCompleta: true },
+        { sigla: 'TCV', nome: 'Termo de convênio ou repasse (TCV)', padrao: 'P1', areaPadrao: 'CNV', dataCompleta: true }
       ]
     },
     {
       grupo: 'Financeiro (FIN)',
       tipos: [
-        { sigla: 'DIA', nome: 'Diárias (DIA)', padrao: 'P1', areaPadrao: 'FIN' },
-        { sigla: 'NFS', nome: 'Nota fiscal (NFS)', padrao: 'P2', areaPadrao: 'FIN' }
+        { sigla: 'DIA', nome: 'Diárias (DIA)', padrao: 'P1', areaPadrao: 'FIN', dataCompleta: true },
+        { sigla: 'NFS', nome: 'Nota fiscal (NFS)', padrao: 'P2', areaPadrao: 'FIN', dataCompleta: true }
       ]
     },
     {
       grupo: 'Licitações e Contratos (LIC)',
       tipos: [
-        { sigla: 'APT', nome: 'Apostilamento (APT)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'ARP', nome: 'Ata de registro de preços (ARP)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'CTR', nome: 'Contrato (CTR)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'DFD', nome: 'Documento de formalização da demanda (DFD)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'ETP', nome: 'Estudo técnico preliminar (ETP)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'MRS', nome: 'Mapa de riscos (MRS)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'PPR', nome: 'Pesquisa de preços (PPR)', padrao: 'P3', areaPadrao: 'LIC' },
-        { sigla: 'SLC', nome: 'Solicitação de licitação ou contratação (SLC)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'ADT_LIC', nome: 'Termo aditivo de contrato (ADT)', padrao: 'P1', areaPadrao: 'LIC' },
-        { sigla: 'TRF', nome: 'Termo de referência (TRF)', padrao: 'P1', areaPadrao: 'LIC' }
+        { sigla: 'APT', nome: 'Apostilamento (APT)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'ARP', nome: 'Ata de registro de preços (ARP)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'CTR', nome: 'Contrato (CTR)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'DFD', nome: 'Documento de formalização da demanda (DFD)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'ETP', nome: 'Estudo técnico preliminar (ETP)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'MRS', nome: 'Mapa de riscos (MRS)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'PPR', nome: 'Pesquisa de preços (PPR)', padrao: 'P3', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'SLC', nome: 'Solicitação de licitação ou contratação (SLC)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'ADT_LIC', nome: 'Termo aditivo de contrato (ADT)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true },
+        { sigla: 'TRF', nome: 'Termo de referência (TRF)', padrao: 'P1', areaPadrao: 'LIC', dataCompleta: true }
       ]
     },
     {
       grupo: 'Órgãos de Controle (CTL — Padrão P5)',
       tipos: [
-        { sigla: 'CTL_DEM', nome: 'Demanda de Órgão de Controle ou Resposta (CTL)', padrao: 'P5' }
+        { sigla: 'CTL_DEM', nome: 'Demanda de Órgão de Controle ou Resposta (CTL)', padrao: 'P5', dataCompleta: true }
       ]
     },
     {
       grupo: 'Pessoal e RH (PES)',
       tipos: [
-        { sigla: 'ESC_PES', nome: 'Escala de trabalho (ESC)', padrao: 'P3', areaPadrao: 'PES' },
-        { sigla: 'ETG', nome: 'Estagiários (ETG)', padrao: 'P3', areaPadrao: 'PES' },
-        { sigla: 'FRQ', nome: 'Frequência (FRQ)', padrao: 'P3', areaPadrao: 'PES' },
-        { sigla: 'PSS', nome: 'Processo seletivo (PSS)', padrao: 'P1', areaPadrao: 'PES' }
+        { sigla: 'ESC_PES', nome: 'Escala de trabalho (ESC)', padrao: 'P3', areaPadrao: 'PES', dataCompleta: true },
+        { sigla: 'ETG', nome: 'Estagiários (ETG)', padrao: 'P3', areaPadrao: 'PES', dataCompleta: true },
+        { sigla: 'FRQ', nome: 'Frequência (FRQ)', padrao: 'P3', areaPadrao: 'PES', dataCompleta: true },
+        { sigla: 'PSS', nome: 'Processo seletivo (PSS)', padrao: 'P1', areaPadrao: 'PES', dataCompleta: true }
       ]
     },
     {
@@ -179,24 +179,24 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       grupo: 'Trânsito (DEMUTRAN — TRN)',
       tipos: [
-        { sigla: 'AIT', nome: 'Auto de infração de trânsito (AIT)', padrao: 'P1', areaPadrao: 'TRN' },
-        { sigla: 'AUT', nome: 'Autorização de interdição de via ou evento (AUT)', padrao: 'P1', areaPadrao: 'TRN' },
-        { sigla: 'BAT', nome: 'Boletim de acidente de trânsito (BAT)', padrao: 'P1', areaPadrao: 'TRN' },
-        { sigla: 'CRD', nome: 'Credencial de estacionamento idoso/PCD (CRD)', padrao: 'P1', areaPadrao: 'TRN' },
-        { sigla: 'RCS', nome: 'Defesa ou recurso de infração (RCS)', padrao: 'P2', areaPadrao: 'TRN' },
-        { sigla: 'ESC_TRN', nome: 'Escala de agentes (ESC)', padrao: 'P3', areaPadrao: 'TRN' },
-        { sigla: 'ETR', nome: 'Estudo de tráfego ou contagem (ETR)', padrao: 'P3', areaPadrao: 'TRN' }
+        { sigla: 'AIT', nome: 'Auto de infração de trânsito (AIT)', padrao: 'P1', areaPadrao: 'TRN', dataCompleta: true },
+        { sigla: 'AUT', nome: 'Autorização de interdição de via ou evento (AUT)', padrao: 'P1', areaPadrao: 'TRN', dataCompleta: true },
+        { sigla: 'BAT', nome: 'Boletim de acidente de trânsito (BAT)', padrao: 'P1', areaPadrao: 'TRN', dataCompleta: true },
+        { sigla: 'CRD', nome: 'Credencial de estacionamento idoso/PCD (CRD)', padrao: 'P1', areaPadrao: 'TRN', dataCompleta: true },
+        { sigla: 'RCS', nome: 'Defesa ou recurso de infração (RCS)', padrao: 'P2', areaPadrao: 'TRN', dataCompleta: true },
+        { sigla: 'ESC_TRN', nome: 'Escala de agentes (ESC)', padrao: 'P3', areaPadrao: 'TRN', dataCompleta: true },
+        { sigla: 'ETR', nome: 'Estudo de tráfego ou contagem (ETR)', padrao: 'P3', areaPadrao: 'TRN', dataCompleta: true }
       ]
     },
     {
       grupo: 'Urbanismo e Licenciamento (URB)',
       tipos: [
-        { sigla: 'ALV', nome: 'Alvará de construção (ALV)', padrao: 'P1', areaPadrao: 'URB' },
-        { sigla: 'CUS', nome: 'Certidão de uso e ocupação do solo (CUS)', padrao: 'P1', areaPadrao: 'URB' },
-        { sigla: 'DSM', nome: 'Desmembramento ou remembramento (DSM)', padrao: 'P1', areaPadrao: 'URB' },
-        { sigla: 'EMB', nome: 'Embargo (EMB)', padrao: 'P1', areaPadrao: 'URB' },
-        { sigla: 'HAB', nome: 'Habite-se (HAB)', padrao: 'P1', areaPadrao: 'URB' },
-        { sigla: 'NOT_URB', nome: 'Notificação de urbanismo (NOT)', padrao: 'P1', areaPadrao: 'URB' }
+        { sigla: 'ALV', nome: 'Alvará de construção (ALV)', padrao: 'P1', areaPadrao: 'URB', dataCompleta: true },
+        { sigla: 'CUS', nome: 'Certidão de uso e ocupação do solo (CUS)', padrao: 'P1', areaPadrao: 'URB', dataCompleta: true },
+        { sigla: 'DSM', nome: 'Desmembramento ou remembramento (DSM)', padrao: 'P1', areaPadrao: 'URB', dataCompleta: true },
+        { sigla: 'EMB', nome: 'Embargo (EMB)', padrao: 'P1', areaPadrao: 'URB', dataCompleta: true },
+        { sigla: 'HAB', nome: 'Habite-se (HAB)', padrao: 'P1', areaPadrao: 'URB', dataCompleta: true },
+        { sigla: 'NOT_URB', nome: 'Notificação de urbanismo (NOT)', padrao: 'P1', areaPadrao: 'URB', dataCompleta: true }
       ]
     }
   ];
@@ -505,7 +505,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function exigeDataDocumento(padrao, meta) {
-    return ['P1', 'P2', 'P3', 'P4', 'P5'].includes(padrao)
+    return meta.dataCompleta
+      || ['P1', 'P2', 'P3', 'P4', 'P5'].includes(padrao)
       || (padrao === 'P6' && meta.seqTipo === 'data');
   }
 
@@ -567,8 +568,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Versão do modelo (Vnn)
     if (wVers) wVers.style.display = (padrao === 'P8') ? 'block' : 'none';
 
-    // Seção Responsável (visível para todas as categorias)
-    if (secResp) secResp.style.display = ['P1', 'P2', 'P3'].includes(padrao) ? 'block' : 'none';
+    // Seção Responsável (visível para todos os padrões e categorias)
+    if (secResp) secResp.style.display = 'block';
 
     // Área pré-selecionada conforme o tipo
     if (meta.areaPadrao && wArea && elArea && elArea.dataset.manual !== 'true') {
@@ -674,6 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const area = (elArea && elArea.value) ? elArea.value : 'ADM';
       const tipo = meta.sigla.replace(/_[A-Z]+/g, '');
       const num = elNum && numeroValido(elNum.value) ? zeroEsquerda(elNum.value, 3) : '';
+      const dataDoc = meta.dataCompleta ? dataCompleta : anoDoc;
       if (!num) {
         avisos.push('Informe o número oficial do documento.');
         temErroObrigatorio = true;
@@ -682,16 +684,19 @@ document.addEventListener('DOMContentLoaded', () => {
         avisos.push('Informe o ano do documento.');
         temErroObrigatorio = true;
       }
-      if (area && tipo && anoDoc && num && respFinal) {
-        partes.push(area, tipo, anoDoc, num, respFinal, assuntoTexto);
+      if (area && tipo && dataDoc && num && respFinal) {
+        partes.push(area, tipo, dataDoc, num, respFinal, assuntoTexto);
       }
-      if (elPadrao) elPadrao.textContent = 'ÁREA-TIPO-AAAA-NNN-RESP-assunto.ext';
+      if (elPadrao) elPadrao.textContent = meta.dataCompleta
+        ? 'ÁREA-TIPO-DDMMAAAA-NNN-RESP-assunto.ext'
+        : 'ÁREA-TIPO-AAAA-NNN-RESP-assunto.ext';
 
     } else if (padrao === 'P2') {
       // ÁREA-TIPO-AAAA-NNN-REC-remetente-assunto.ext
       const area = (elArea && elArea.value) ? elArea.value : 'ADM';
       const tipo = meta.sigla.replace(/_[A-Z]+/g, '');
       const num = elNum && numeroValido(elNum.value) ? zeroEsquerda(elNum.value, 3) : '';
+      const dataDoc = meta.dataCompleta ? dataCompleta : anoDoc;
       if (!num) {
         avisos.push('Informe o número oficial do documento.');
         temErroObrigatorio = true;
@@ -708,10 +713,12 @@ document.addEventListener('DOMContentLoaded', () => {
         avisos.push('Informe o remetente externo (Regra P2).');
         temErroObrigatorio = true;
       }
-      if (area && tipo && anoDoc && num && remetente) {
-        partes.push(area, tipo, anoDoc, num, 'REC', remetente, assuntoTexto);
+      if (area && tipo && dataDoc && num && remetente) {
+        partes.push(area, tipo, dataDoc, num, 'REC', remetente, assuntoTexto);
       }
-      if (elPadrao) elPadrao.textContent = 'ÁREA-TIPO-AAAA-NNN-REC-remetente-assunto.ext';
+      if (elPadrao) elPadrao.textContent = meta.dataCompleta
+        ? 'ÁREA-TIPO-DDMMAAAA-NNN-REC-remetente-assunto.ext'
+        : 'ÁREA-TIPO-AAAA-NNN-REC-remetente-assunto.ext';
 
     } else if (padrao === 'P3') {
       // ÁREA-TIPO-AAAA-RESP-assunto.ext (ou DDMMAAAA se dia importa)
@@ -744,6 +751,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // NRM-TIPO-AAAA-NNNN-assunto.ext (4 dígitos no número)
       const tipo = meta.sigla;
       const num = elNum && numeroValido(elNum.value) ? zeroEsquerda(elNum.value, 4) : '';
+      const dataDoc = meta.dataCompleta ? dataCompleta : anoDoc;
       if (!num) {
         avisos.push('Informe o número do ato normativo.');
         temErroObrigatorio = true;
@@ -752,14 +760,17 @@ document.addEventListener('DOMContentLoaded', () => {
         avisos.push('Informe o ano do ato normativo.');
         temErroObrigatorio = true;
       }
-      if (tipo && anoDoc && num) partes.push('NRM', tipo, anoDoc, num, assuntoTexto);
-      if (elPadrao) elPadrao.textContent = 'NRM-TIPO-AAAA-NNNN-assunto.ext';
+      if (tipo && dataDoc && num) partes.push('NRM', tipo, dataDoc, num, assuntoTexto);
+      if (elPadrao) elPadrao.textContent = meta.dataCompleta
+        ? 'NRM-TIPO-DDMMAAAA-NNNN-assunto.ext'
+        : 'NRM-TIPO-AAAA-NNNN-assunto.ext';
 
     } else if (padrao === 'P5') {
       // CTL-ÓRGÃO-AAAA-NNN-[REC|RSP]-assunto.ext
       const orgao = (elOrgao && elOrgao.value) ? elOrgao.value : 'MPE';
       const num = elNum && numeroValido(elNum.value) ? zeroEsquerda(elNum.value, 3) : '';
       const sentido = (elSentido && elSentido.value) ? elSentido.value : 'REC';
+      const dataDoc = meta.dataCompleta ? dataCompleta : anoDoc;
       if (!num) {
         avisos.push('Informe o número da demanda oficial.');
         temErroObrigatorio = true;
@@ -768,8 +779,10 @@ document.addEventListener('DOMContentLoaded', () => {
         avisos.push('Informe o ano da demanda.');
         temErroObrigatorio = true;
       }
-      if (orgao && anoDoc && num) partes.push('CTL', orgao, anoDoc, num, sentido, assuntoTexto);
-      if (elPadrao) elPadrao.textContent = `CTL-ÓRGÃO-AAAA-NNN-${sentido}-assunto.ext`;
+      if (orgao && dataDoc && num) partes.push('CTL', orgao, dataDoc, num, sentido, assuntoTexto);
+      if (elPadrao) elPadrao.textContent = meta.dataCompleta
+        ? `CTL-ÓRGÃO-DDMMAAAA-NNN-${sentido}-assunto.ext`
+        : `CTL-ÓRGÃO-AAAA-NNN-${sentido}-assunto.ext`;
 
     } else if (padrao === 'P6') {
       // OBR-AAAA-[NNN]-TIPO-SEQ-assunto.ext
@@ -807,7 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
         temErroObrigatorio = true;
       }
       const sequencialValido = meta.seqTipo !== 'num' || Boolean(seqVal);
-      const dataSequencialValida = meta.seqTipo !== 'data' || Boolean(dataCompleta);
+      const dataSequencialValida = (meta.seqTipo !== 'data' && !meta.dataCompleta) || Boolean(dataCompleta);
       const codigoValido = !codigoObraInformado || Boolean(seqObra);
       if (anoObra && sequencialValido && dataSequencialValida && codigoValido
         && (!revisaoObrigatoria || revisaoObra)) {
@@ -815,11 +828,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (seqObra) partes.push(seqObra);
         partes.push(tipoObra);
         if (seqVal) partes.push(seqVal);
-        if (meta.seqTipo === 'data') partes.push(dataCompleta);
+        if (meta.dataCompleta || meta.seqTipo === 'data') partes.push(dataCompleta);
         partes.push(`${assuntoTexto}${revisaoObra ? `-R${revisaoObra}` : ''}`);
       }
 
-      if (elPadrao) elPadrao.textContent = 'OBR-AAAA-[NNN]-TIPO-SEQ-assunto.ext';
+      if (elPadrao) {
+        elPadrao.textContent = meta.dataCompleta
+          ? 'OBR-AAAA-[NNN]-TIPO-[SEQ]-DDMMAAAA-assunto[-Rnn].ext'
+          : 'OBR-AAAA-[NNN]-TIPO-SEQ-assunto[-Rnn].ext';
+      }
 
     } else if (padrao === 'P7') {
       // PRJ-AAAA-[NNN]-FASE-TIPO-DISC-assunto-Rnn.ext
